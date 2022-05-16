@@ -1,0 +1,60 @@
+ <!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Stacja benzynowa</h1>
+    
+    <h3>Wybierz zakup</h3>
+
+    <div>
+        <input type="radio" id="benzyna" name="wybor" value="litry">
+        <label for="benzyna" class="text">Benzyna</label>
+        <input type="text" id="cenabenzyny" class="color">
+    </div>
+
+    <div>
+        <input type="radio" id="ropa" name="wybor" value="litry">
+        <label for="ropa" class="text">Ropa</label>
+        <input type="text" id="cenaropy" class="color">
+    </div>
+
+    <div class="topmargin">
+        <h3>Podaj liczbe litów</h3>
+        <input type="text" id="litry" class="color">
+
+        <button id="policz" onclick="policz()">Policz</button>
+    </div>
+
+    <div class="topmargin">
+        <span class="text" id="cena">
+    </div>
+
+    <script>
+        let cena;
+
+        function policz(){
+            var benzyna = document.getElementById("cenabenzyny").value;
+            var ropa = document.getElementById("cenaropy").value;
+            let checkbenzyna = document.getElementById("benzyna").checked;
+            let checkropa = document.getElementById("ropa").checked;
+            var litry = document.getElementById("litry").value;
+
+            if (checkbenzyna == true) {
+                cena = benzyna * litry;
+                document.getElementById("cena").innerHTML = "Za " + litry + " litrów benzyny zapłacisz " + cena + " zł.";
+            }
+            else if (checkropa == true) {
+                cena = ropa * litry;
+                document.getElementById("cena").innerHTML = "Za " + litry + " litrów ropy zapłacisz " + cena + " zł.";
+            }
+        }
+    </script>
+    <!--Cały CSS jest dołączony do folderu -->
+</body>
+</html>
